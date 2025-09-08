@@ -32,8 +32,8 @@ function calculateResults(e) {
     e.preventDefault();
 
     fields.forEach((field) => {
-        if (inputElements[field].value) value[field] = Number(inputElements[field].value);
-        else value[field].value = NaN;
+        value[field] = NaN;
+        if (Number(inputElements[field].value)) value[field] = Number(inputElements[field].value);
     });
 
     if (mass == 0) {
@@ -46,12 +46,12 @@ function calculateResults(e) {
         // ME = KE + ?
         if (value.kinetic && !value.potential) {
             value.potential = value.mechanical - value.kinetic
-            inputElements.potential.value = value.potential.toString();
+            inputElements.potential.value = value.potential;
         }
         //ME = ? + PE
         else if (!value.kinetic && value.potential) {
             value.kinetic = value.mechanical - value.potential;
-            inputElements.kinetic.value = value.kinetic.toString();
+            inputElements.kinetic.value = value.kinetic;
         }
         //ME = KE + PE (Validate)
         else if (value.kinetic && value.potential) {
@@ -70,12 +70,12 @@ function calculateResults(e) {
         //KE = 0.5 * m * ? ^2
         if (value.mass && !value.velocity) {
             value.velocity = Math.sqrt(value.kinetic * 2 / value.mass);
-            inputElements.velocity.value = value.velocity.toString();
+            inputElements.velocity.value = value.velocity;
         }
         //KE = 0.5 * ? * v^2
         else if (!value.mass && value.velocity) {
             value.mass = value.kinetic * 2 / value.velocity / value.velocity;
-            inputElements.mass.value = value.mass.toString();
+            inputElements.mass.value = value.mass;
         }
         //KE = 0.5 * m * v^2 (Replace)
         else if (value.mass && value.velocity) {
@@ -89,17 +89,17 @@ function calculateResults(e) {
         //PE = m * ? * h
         if (value.mass && !value.gravity && value.height) {
             value.gravity = value.potential / value.mass / value.height;
-            inputElements.gravity.value = value.gravity.toString();
+            inputElements.gravity.value = value.gravity;
         }
         //PE = ? * g * h
         else if (!value.mass && value.gravity && value.height) {
             value.mass = value.potential / value.gravity / value.height;
-            inputElements.mass.value = value.mass.toString();
+            inputElements.mass.value = value.mass;
         }
         //PE = m * g * ?
         else if (value.mass && value.gravity && !value.height) {
             value.height = value.potential / value.gravity / value.mass;
-            inputElements.height.value = value.height.toString();
+            inputElements.height.value = value.height;
         }
         //PE = m * g * h (Replace)
         else if (value.mass && value.gravity && value.height) {
@@ -112,19 +112,19 @@ function calculateResults(e) {
     if (value.mass) {
         if (value.velocity) {
             value.kinetic = value.mass * value.velocity * value.velocity / 2;
-            inputElements.kinetic.value = value.kinetic.toString();
+            inputElements.kinetic.value = value.kinetic;
             console.log('Kinetic Energy calculated');
         }
         if (value.gravity && value.height) {
             value.potential = value.mass * value.gravity * value.height;
-            inputElements.potential.value = value.potential.toString();
+            inputElements.potential.value = value.potential;
             console.log('Potential Energy calculated')
         }
     }
 
     if (value.kinetic && value.potential) {
         value.mechanical = value.kinetic + value.potential;
-        inputElements.mechanical.value = value.mechanical.toString();
+        inputElements.mechanical.value = value.mechanical;
         console.log('Mechanical Energy calculated');
     }
 
