@@ -1,0 +1,15 @@
+Should make
+Kinetic Energy: KE = 0.5mv^2
+Gravitational Potential Energy: PE = mgh
+Absolute Gravitational Potential Energy: - (G*M1*M2)/r
+Electric Potential Energy: E = qV
+Mechanical Energy: E = KE + PE
+Conservation of energy: KE+PE = KE+PE
+Calorymetry: Q = mcT, Q = mL
+Work: F * S * cos a || ( a is the angle between F and the vector of displacement)
+
+Optional
+Rotational Kinetic Energy: KE = 0.5mv^2 + 0.5 I w^2
+Absolute Electric Potential Energy: E = (kq1q2)/r
+Spring potential Energy: 0.5*k*x^2
+Mechanical Energy for Harmonic Motion: 0.5mv*2 + 0.5kx^2
