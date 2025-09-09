@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <title>Electricty</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="scripts/ElectricEnergy.js" defer></script>
+</head>
+
+<body>
+    <h1>Electric Energy</h1>
+    <div class="results">
+        <form action="_" id="inputForm">
+            <label for="subtype">Which type of energy equation?</label>
+            <select name="subtype" id="subtype">
+                <option value="EQV">Energy Transfer(E = QV)</option>
+                <option value="electrostatic">Electrostatic Potential Energy</option>
+            </select>
+            <div id="currentContext"></div>
+            <input type="submit" id="calculate">
+        </form>
+    </div>
+</body>
+
+</html>

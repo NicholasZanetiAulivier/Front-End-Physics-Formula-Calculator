@@ -1,9 +1,11 @@
-Should make
+Done
 Kinetic Energy: KE = 0.5mv^2
 Gravitational Potential Energy: PE = mgh
+Mechanical Energy: E = KE + PE
+
+Should make
 Absolute Gravitational Potential Energy: - (G*M1*M2)/r
 Electric Potential Energy: E = qV
-Mechanical Energy: E = KE + PE
 Conservation of energy: KE+PE = KE+PE
 Calorymetry: Q = mcT, Q = mL
 Work: F * S * cos a || ( a is the angle between F and the vector of displacement)
