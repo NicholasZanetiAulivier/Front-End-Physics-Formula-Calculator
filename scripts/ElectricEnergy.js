@@ -96,7 +96,98 @@ function calculateContents(e) {
 }
 
 function calculateEQV(table) {
+    let values = {
+        I: Number(table.I.value),
+        t: Number(table.t.value),
+        R: Number(table.R.value),
+        V: Number(table.V.value),
+        Q: Number(table.Q.value),
+        E: Number(table.E.value),
+    }
 
+    //E = QV
+    if (values.E) {
+        //E = ?V
+        if (!values.Q && values.V) {
+            values.Q = values.E / values.V;
+            table.Q.value = values.Q;
+        }
+        //E = Q?
+        else if (values.Q && !values.V) {
+            values.V = values.E / values.Q;
+            table.V.value = values.V;
+        }
+        //E = QV (Double Check)
+        else if (values.Q && values.V) {
+            let tempEnergy = values.Q * values.V;
+            if (tempEnergy != values.E) {
+                alert('Values for Voltage, Charge, and Energy do not add up');
+                console.log(tempEnergy);
+                console.log(value.E);
+            }
+        }
+    }
+
+    //Q = It
+    if (values.Q) {
+        //Q = I?
+        if (values.I && !values.t) {
+            values.t = values.Q / values.I;
+            table.t.value = values.t;
+        }
+        //Q = ?t
+        else if (!values.I && values.t) {
+            values.I = values.Q / values.t;
+            table.I.value = values.I;
+        }
+        //Q = It (Replace)
+        else if (values.I && values.t) {
+            values.Q = NaN;
+            table.Q.value = "";
+        }
+    }
+
+    //V = IR
+    if (values.V) {
+        //V = I?
+        if (values.I && !values.R) {
+            console.log('calc R');
+            values.R = values.V / values.I;
+            console.log(values.V, values.I, values.R);
+            table.R.value = values.R;
+        }
+        //V = ?R
+        else if (!values.I && values.R) {
+            values.I = values.V / values.R;
+            table.I.value = values.I;
+        }
+        //V = IR (Replace)
+        else if (values.I && values.R) {
+            values.V = NaN;
+            table.V.value = "";
+        }
+
+    }
+
+
+    if (values.I) {
+        if (values.t) {
+            values.Q = values.I * values.t;
+            table.Q.value = values.Q;
+            console.log('Charge Calculated');
+        }
+        if (values.R) {
+            values.V = values.I * values.R;
+            table.V.value = values.V;
+            console.log('Voltage Calculated');
+        }
+    }
+
+    if (values.V && values.Q) {
+        values.E = values.V * values.Q;
+        table.E.value = values.E;
+        console.log('Energy Calculated');
+    }
 }
 
 function calculateStatic(table) {
@@ -111,7 +202,7 @@ function calculateStatic(table) {
     }
 
     if (shouldContinue) {
-        subTotal = subTotal * 8.98755 * table.q.value / 1000;
+        subTotal = subTotal * 8.98755 * table.q.value / 1000; // ke = Coulomb's Constant
         table.E.innerHTML = `${subTotal} J`;
     } else {
         alert('Fill in all of the blank values');
@@ -149,7 +240,6 @@ function addCharge(e) {
             children[i].onclick = deleteCharge;
         }
     }
-    // e.target.parentElement.parentElement.addAdjacentHTML(newCharge);
 }
 
 function deleteCharge(e) {
