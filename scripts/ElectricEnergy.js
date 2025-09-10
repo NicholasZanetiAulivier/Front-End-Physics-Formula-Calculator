@@ -18,24 +18,25 @@ let electrostaticHTML = `
     <label for="selfCharge">Charge: </label>
     <input type="number" step="0.0001" id="selfCharge" name="selfCharge"></input><br>
 
-    <div>
+    <div class="q">
         <span>Additional Charge:</span><br>
         <label for="charge">Charge: </label>
         <input type="number" step="0.0001" id="charge" name="charge"></input><br>
         <label for="distance">Distance: </label> 
         <input type="number" step="0.0001" id="distance" name="distance"></input><br>
-        <button type="button" id="addCharge">Add</button>
+        <button type="button" class="addCharge">Add</button>
+        <button type="button" class="deleteCharge">Delete</button>
     </div>
 `;
 
 let electrostaticChargeTemplate = `
-    <div>
+    <div class="q">
         <label for="charge">Charge: </label>
         <input type="number" step="0.0001" id="charge" name="charge"></input><br>
         <label for="distance">Distance: </label> 
         <input type="number" step="0.0001" id="distance" name="distance"></input><br>
-        <button type="button" id="addCharge">Add</button>
-        <button type="button" id="deleteCharge">Delete</button>
+        <button type="button" class="addCharge">Add</button>
+        <button type="button" class="deleteCharge">Delete</button>
     </div>
 `;
 
@@ -55,6 +56,7 @@ function changeContents(e) {
         }
         case 'electrostatic': {
             div.innerHTML = electrostaticHTML;
+            bindAddButtons();
             break;
         }
     }
@@ -62,4 +64,20 @@ function changeContents(e) {
 
 function calculateContents(e) {
     e.preventDefault();
+}
+
+function bindAddButtons() {
+    let addButtons = document.getElementsByClassName('addCharge');
+    for (let i = 0; i < addButtons.length; i++) {
+        let b = addButtons[i];
+        console.log(b);
+        b.onclick = addCharge; // event listener
+    }
+}
+
+function addCharge() {
+    let newCharge = document.createElement('div');
+    newCharge.innerHTML = electrostaticChargeTemplate;
+    div.appendChild(newCharge);
+    bindAddButtons();
 }
