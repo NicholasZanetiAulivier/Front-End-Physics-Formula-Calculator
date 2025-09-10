@@ -1,43 +1,44 @@
 let EQVHTML = `
-    <label for="ampere">Current: </label>
+    <span>Current: </span>
     <input type="number" step="0.0001" id="ampere" name="ampere"></input><br>
-    <label for="currentDuration">Current Duration: </label>
+    <span>Current Duration: </span>
     <input type="number" step="0.0001" id="currentDuration" name="currentDuration"></input><br>
-    <label for="resistance">Resistance: </label>
+    <span>Resistance: </span>
     <input type="number" step="0.0001" id="resistance" name="resistance"></input><br>
     
-    <label for="volts">Voltage: </label>
+    <span>Voltage: </span>
     <input type="number" step="0.0001" id="volts" name="volts"></input><br>
-    <label for="charge">Electric Charge: </label>
+    <span>Electric Charge: </span>
     <input type="number" step="0.0001" id="charge" name="charge"></input><br>
 
-    <label for="energy">Energy Transfer: </label>
+    <span>Energy Transfer: </span>
     <input type="number" step="0.0001" id="energy" name="energy"></input>
     `;
+
 let electrostaticHTML = `
-    <label for="selfCharge">Charge: </label>
-    <input type="number" step="0.0001" id="selfCharge" name="selfCharge"></input><br>
+    <span>Primary Charge: </span>
+    <input type="number" step="0.0001" id="selfCharge" name="selfCharge"></input>&#181;C<br>
 
     <div class="q">
         <span>Additional Charge:</span><br>
-        <label for="charge">Charge: </label>
-        <input type="number" step="0.0001" id="charge" name="charge"></input><br>
-        <label for="distance">Distance: </label> 
-        <input type="number" step="0.0001" id="distance" name="distance"></input><br>
+        <span>Charge: </span>
+        <input type="number" step="0.0001" class="charge" name="charge"></input>&#181;C<br>
+        <span>Distance: </span> 
+        <input type="number" step="0.0001" class="distance" name="distance"></input><br>
         <button type="button" class="addCharge">Add</button>
         <button type="button" class="deleteCharge">Delete</button>
     </div>
+    <span>Electrostatic Potential Energy of Primary Charge: </span>
+    <span id="energy"></span>
 `;
 
 let electrostaticChargeTemplate = `
-    <div class="q">
-        <label for="charge">Charge: </label>
-        <input type="number" step="0.0001" id="charge" name="charge"></input><br>
-        <label for="distance">Distance: </label> 
-        <input type="number" step="0.0001" id="distance" name="distance"></input><br>
+        <span>Charge: </span>
+        <input type="number" step="0.0001" class="charge" name="charge"></input>&#181;C<br>
+        <span>Distance: </span> 
+        <input type="number" step="0.0001" class="distance" name="distance"></input><br>
         <button type="button" class="addCharge">Add</button>
         <button type="button" class="deleteCharge">Delete</button>
-    </div>
 `;
 
 let form = document.getElementById('inputForm');
@@ -57,6 +58,7 @@ function changeContents(e) {
         case 'electrostatic': {
             div.innerHTML = electrostaticHTML;
             bindAddButtons();
+            bindDeleteButtons();
             break;
         }
     }
@@ -64,6 +66,56 @@ function changeContents(e) {
 
 function calculateContents(e) {
     e.preventDefault();
+
+    switch (select.value) {
+        case 'EQV': {
+            let html = {
+                I: document.getElementById('ampere'),
+                t: document.getElementById('currentDuration'),
+                R: document.getElementById('resistance'),
+                V: document.getElementById('volts'),
+                Q: document.getElementById('charge'),
+                E: document.getElementById('energy')
+            };
+
+            calculateEQV(html);
+            break;
+        }
+        case 'electrostatic': {
+            let html = {
+                q: document.getElementById('selfCharge'),
+                otherCharges: document.getElementsByClassName('charge'),
+                otherDistance: document.getElementsByClassName('distance'),
+                E: document.getElementById('energy'),
+            };
+
+            calculateStatic(html);
+            break;
+        }
+    }
+}
+
+function calculateEQV(table) {
+
+}
+
+function calculateStatic(table) {
+    let shouldContinue = true;
+    let subTotal = 0;
+    for (let i = 0; i < table.otherCharges.length; i++) {
+        if (!table.otherCharges[i].value) {
+            shouldContinue = false;
+            break;
+        }
+        subTotal += table.otherCharges[i].value / table.otherDistance[i].value;
+    }
+
+    if (shouldContinue) {
+        subTotal = subTotal * 8.98755 * table.q.value / 1000;
+        table.E.innerHTML = `${subTotal} J`;
+    } else {
+        alert('Fill in all of the blank values');
+    }
 }
 
 function bindAddButtons() {
@@ -75,9 +127,37 @@ function bindAddButtons() {
     }
 }
 
-function addCharge() {
+function bindDeleteButtons() {
+    let deleteButtons = document.getElementsByClassName('deleteCharge');
+    for (let i = 0; i < deleteButtons.length; i++) {
+        let b = deleteButtons[i];
+        console.log(b);
+        b.onclick = deleteCharge; // event listener
+    }
+}
+
+function addCharge(e) {
     let newCharge = document.createElement('div');
     newCharge.innerHTML = electrostaticChargeTemplate;
-    div.appendChild(newCharge);
-    bindAddButtons();
+    newCharge.className = 'q';
+    e.target.parentElement.after(newCharge);
+    let children = newCharge.children;
+    for (let i = 0; i < children.length; i++) {
+        if (children[i].className == 'addCharge') {
+            children[i].onclick = addCharge;
+        } else if (children[i].className == 'deleteCharge') {
+            children[i].onclick = deleteCharge;
+        }
+    }
+    // e.target.parentElement.parentElement.addAdjacentHTML(newCharge);
+}
+
+function deleteCharge(e) {
+    let charges = document.getElementsByClassName('q');
+    if (charges.length > 1) {
+        let target = e.target;
+        let parent = target.parentElement;
+        let parentsParent = parent.parentElement;
+        parentsParent.removeChild(parent);
+    }
 }

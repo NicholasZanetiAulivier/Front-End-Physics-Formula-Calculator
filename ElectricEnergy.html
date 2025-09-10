@@ -15,10 +15,33 @@
             <label for="subtype">Which type of energy equation?</label>
             <select name="subtype" id="subtype">
                 <option value="EQV">Energy Transfer(E = QV)</option>
-                <option value="electrostatic">Electrostatic Potential Energy</option>
+                <option value="electrostatic">Electrostatic: One-Many</option>
             </select>
-            <div id="currentContext"></div>
+            <div id="currentContext">
+                <span>Charge: </span>
+                <input type="number" step="0.0001" id="selfCharge" name="selfCharge"></input><br>
+
+                <div class="q">
+                    <span>Current: </span>
+                    <input type="number" step="0.0001" id="ampere" name="ampere"></input><br>
+                    <span>Current Duration: </span>
+                    <input type="number" step="0.0001" id="currentDuration" name="currentDuration"></input><br>
+                    <span>Resistance: </span>
+                    <input type="number" step="0.0001" id="resistance" name="resistance"></input><br>
+
+                    <span>Voltage: </span>
+                    <input type="number" step="0.0001" id="volts" name="volts"></input><br>
+                    <span>Electric Charge: </span>
+                    <input type="number" step="0.0001" id="charge" name="charge"></input><br>
+
+                    <span>Energy Transfer: </span>
+                    <input type="number" step="0.0001" id="energy" name="energy"></input>
+                </div>
+            </div>
             <input type="submit" id="calculate">
+            <div id="currentResults">
+
+            </div>
         </form>
     </div>
 </body>
