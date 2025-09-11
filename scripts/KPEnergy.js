@@ -1,4 +1,13 @@
 let inputForm = document.getElementById('inputForm');
+
+let massUnit = document.getElementById('massU');
+let velocityUnit = document.getElementById('velocityU');
+let heightUnit = document.getElementById('heightU');
+
+massUnit.addEventListener('change', changeMassU);
+velocityUnit.addEventListener('change', changeVelocityU);
+heightUnit.addEventListener('change', changeHeightU);
+
 inputForm.addEventListener('submit', calculateResults);
 
 let inputElements = {
@@ -25,6 +34,12 @@ let value = {
     mechanical: null,
 }
 
+let normalize = {
+    mass: 1,
+    velocity: 1,
+    height: 1,
+};
+
 let fields = ['mass', 'velocity', 'gravity', 'height', 'kinetic', 'potential', 'mechanical'];
 
 
@@ -33,7 +48,7 @@ function calculateResults(e) {
 
     fields.forEach((field) => {
         value[field] = null;
-        if (Number(inputElements[field].value) || inputElements[field].value == "0") value[field] = new Number(inputElements[field].value);
+        if (Number(inputElements[field].value) || inputElements[field].value == "0") value[field] = new Number(inputElements[field].value * (normalize[field] ? normalize[field] : 1));
     });
 
     console.log(value);
@@ -77,12 +92,12 @@ function calculateResults(e) {
         //KE = 0.5 * m * ? ^2
         if (hasMass && !hasVelocity) {
             value.velocity = new Number(Math.sqrt(value.kinetic * 2 / value.mass));
-            inputElements.velocity.value = value.velocity;
+            inputElements.velocity.value = value.velocity / normalize.velocity;
         }
         //KE = 0.5 * ? * v^2
         else if (!hasMass && hasVelocity) {
             value.mass = new Number(value.kinetic * 2 / value.velocity / value.velocity);
-            inputElements.mass.value = value.mass;
+            inputElements.mass.value = value.mass / normalize.mass;
         }
         //KE = 0.5 * m * v^2 (Replace)
         else if (hasMass && hasVelocity) {
@@ -104,12 +119,12 @@ function calculateResults(e) {
         //PE = ? * g * h
         else if (!hasMass && hasGravity && hasHeight) {
             value.mass = new Number(value.potential / value.gravity / value.height);
-            inputElements.mass.value = value.mass;
+            inputElements.mass.value = value.mass / normalize.mass;
         }
         //PE = m * g * ?
         else if (hasMass && hasGravity && !hasHeight) {
             value.height = new Number(value.potential / value.gravity / value.mass);
-            inputElements.height.value = value.height;
+            inputElements.height.value = value.height / normalize.height;
         }
         //PE = m * g * h (Replace)
         else if (hasMass && hasGravity && hasHeight) {
@@ -136,6 +151,77 @@ function calculateResults(e) {
         value.mechanical = new Number(value.kinetic + value.potential);
         inputElements.mechanical.value = value.mechanical;
         console.log('Mechanical Energy calculated');
+    }
+
+}
+
+function changeMassU(e) {
+    switch (e.target.value) {
+        case 'kg': {
+            normalize.mass = 1;
+            break;
+        }
+        case 'g': {
+            normalize.mass = 0.001;
+            break;
+        }
+        case 'lb': {
+            normalize.mass = 0.453592;
+            break;
+        }
+        case 'oz': {
+            normalize.mass = 0.0283495;
+            break;
+        }
+    }
+}
+function changeHeightU(e) {
+    switch (e.target.value) {
+        case 'm': {
+            normalize.height = 1;
+            break;
+        }
+        case 'cm': {
+            normalize.height = 0.01;
+            break;
+        }
+        case 'km': {
+            normalize.height = 1000;
+            break;
+        }
+        case 'in': {
+            normalize.height = 0.0254;
+            break;
+        }
+        case 'ft': {
+            normalize.height = 0.3048;
+            break;
+        }
+    }
+
+}
+function changeVelocityU(e) {
+    switch (e.target.value) {
+        case 'm_s': {
+            normalize.velocity = 1;
+            break;
+        }
+        case 'km_h': {
+            normalize.velocity = 0.277778;
+            break;
+        }
+        case 'cm_s': {
+            normalize.velocity = 0.01;
+            break;
+        }
+        case 'ft_s': {
+            normalize.velocity = 0.3048;
+            break;
+        }
+        case 'miles_hr': {
+            normalize.velocity = 0.44704;
+            break;
+        }
     }
 
 }

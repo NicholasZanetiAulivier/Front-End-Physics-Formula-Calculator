@@ -12,15 +12,42 @@
     <h1>Kinetic and Potential Energy</h1>
     <h2><a href="index.html">Home</a></h2>
     <div class="results">
-        <form action="_" id="inputForm">
+        <form action="_" id="inputForm" novalidate>
             <span>Mass:</span>
-            <input type="number" step="0.0001" id="mass" name="mass"><br>
+            <input type="number" step="0.0001" id="mass" name="mass">
+            <select name="massU" id="massU">
+                <option value="kg" selected>kg</option>
+                <option value="g">g</option>
+                <option value="lb">lb</option>
+                <option value="oz">oz</option>
+            </select>
+            <br>
             <span>Velocity:</span>
-            <input type="number" step="0.0001" id="velocity" name="velocity"><br>
+            <input type="number" step="0.0001" id="velocity" name="velocity">
+            <select name="velocityU" id="velocityU">
+                <option value="m_s" selected>m/s</option>
+                <option value="km_h">km/h</option>
+                <option value="cm_s">cm/s</option>
+                <option value="ft_s">ft/s</option>
+                <option value="miles_hr">miles/hr</option>
+            </select>
+            <br>
             <span>Gravitational Acceleration:</span>
-            <input type="number" step="0.0001" id="gravity" name="gravity" placeholder="9.8" value="9.8"><br>
+            <input type="number" step="0.0001" id="gravity" name="gravity" placeholder="9.8" value="9.8">
+            <select name="gU" id="gU">
+                <option value="m_s2" selected>m/s&#178;</option>
+            </select>
+            <br>
             <span>Height:</span>
-            <input type="number" step="0.0001" id="height" name="height"><br>
+            <input type="number" step="0.0001" id="height" name="height">
+            <select name="heightU" id="heightU">
+                <option value="m" selected>m</option>
+                <option value="cm">cm</option>
+                <option value="km">km</option>
+                <option value="in">in</option>
+                <option value="ft">ft</option>
+            </select>
+            <br>
 
             <span>Kinetic Energy: </span>
             <input type="number" step="0.0001" id="kineticEnergy" name="kineticEnergy">
