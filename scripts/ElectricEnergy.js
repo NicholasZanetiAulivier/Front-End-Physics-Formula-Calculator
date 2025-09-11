@@ -96,73 +96,72 @@ function calculateContents(e) {
 }
 
 function calculateEQV(table) {
-    let values = {
-        I: Number(table.I.value),
-        t: Number(table.t.value),
-        R: Number(table.R.value),
-        V: Number(table.V.value),
-        Q: Number(table.Q.value),
-        E: Number(table.E.value),
+    let values = {};
+    for (const k in table) {
+        v = table[k];
+        values[k] = null;
+        if (Number(v.value) || v.value == "0") values[k] = new Number(v.value);
     }
 
     //E = QV
-    if (values.E) {
+    if (values.E instanceof Number) {
+        let hasQ = values.Q instanceof Number;
+        let hasV = values.V instanceof Number;
         //E = ?V
-        if (!values.Q && values.V) {
-            values.Q = values.E / values.V;
+        if (!hasQ && hasV) {
+            values.Q = new Number(values.E / values.V);
             table.Q.value = values.Q;
         }
         //E = Q?
-        else if (values.Q && !values.V) {
-            values.V = values.E / values.Q;
+        else if (hasQ && !hasV) {
+            values.V = new Number(values.E / values.Q);
             table.V.value = values.V;
         }
-        //E = QV (Double Check)
-        else if (values.Q && values.V) {
-            let tempEnergy = values.Q * values.V;
-            if (tempEnergy != values.E) {
-                alert('Values for Voltage, Charge, and Energy do not add up');
-                console.log(tempEnergy);
-                console.log(value.E);
-            }
+        //E = QV (replace)
+        else if (hasQ && hasV) {
+            values.E = NaN;
         }
     }
 
     //Q = It
-    if (values.Q) {
+    if (values.Q instanceof Number) {
+        let hasI = values.I instanceof Number;
+        let hasT = values.t instanceof Number;
         //Q = I?
-        if (values.I && !values.t) {
-            values.t = values.Q / values.I;
+        if (hasI && !hasT) {
+            values.t = new Number(values.Q / values.I);
             table.t.value = values.t;
         }
         //Q = ?t
-        else if (!values.I && values.t) {
-            values.I = values.Q / values.t;
+        else if (!hasI && hasT) {
+            values.I = new Number(values.Q / values.t);
             table.I.value = values.I;
         }
         //Q = It (Replace)
-        else if (values.I && values.t) {
+        else if (hasI && hasT) {
             values.Q = NaN;
             table.Q.value = "";
         }
     }
 
     //V = IR
-    if (values.V) {
+    if (values.V instanceof Number) {
+        let hasI = values.I instanceof Number;
+        let hasR = values.R instanceof Number;
         //V = I?
-        if (values.I && !values.R) {
+        if (hasI && !hasR) {
             console.log('calc R');
-            values.R = values.V / values.I;
+            values.R = new Number(values.V / values.I);
             console.log(values.V, values.I, values.R);
             table.R.value = values.R;
         }
         //V = ?R
-        else if (!values.I && values.R) {
-            values.I = values.V / values.R;
+        else if (!hasI && values.R) {
+            values.I = new Number(values.V / values.R);
             table.I.value = values.I;
         }
         //V = IR (Replace)
-        else if (values.I && values.R) {
+        else if (hasI && hasR) {
             values.V = NaN;
             table.V.value = "";
         }
@@ -170,35 +169,36 @@ function calculateEQV(table) {
     }
 
 
-    if (values.I) {
-        if (values.t) {
-            values.Q = values.I * values.t;
+    if (values.I instanceof Number) {
+        if (values.t instanceof Number) {
+            values.Q = new Number(values.I * values.t);
             table.Q.value = values.Q;
             console.log('Charge Calculated');
         }
-        if (values.R) {
-            values.V = values.I * values.R;
+        if (values.R instanceof Number) {
+            values.V = new Number(values.I * values.R);
             table.V.value = values.V;
             console.log('Voltage Calculated');
         }
     }
 
-    if (values.V && values.Q) {
-        values.E = values.V * values.Q;
+    if (values.V instanceof Number && values.Q instanceof Number) {
+        values.E = new Number(values.V * values.Q);
         table.E.value = values.E;
         console.log('Energy Calculated');
     }
+    console.log(values);
 }
 
 function calculateStatic(table) {
     let shouldContinue = true;
     let subTotal = 0;
     for (let i = 0; i < table.otherCharges.length; i++) {
-        if (!table.otherCharges[i].value) {
+        if (!(table.otherCharges[i].value || table.otherDistance[i].value)) {
             shouldContinue = false;
             break;
         }
-        subTotal += table.otherCharges[i].value / table.otherDistance[i].value;
+        subTotal += Number(table.otherCharges[i].value) / Number(table.otherDistance[i].value);
     }
 
     if (shouldContinue) {
