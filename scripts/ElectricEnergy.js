@@ -41,6 +41,18 @@ let electrostaticChargeTemplate = `
         <button type="button" class="deleteCharge">Delete</button>
 `;
 
+let electrostaticDuoHTML = `
+    <span>Charge 1: </span>
+    <input type="number" step="0.0001" id="charge1" name="charge1"></input>
+    <span>Charge 2: </span>
+    <input type="number" step="0.0001" id="charge2" name="charge2"></input>
+    <span>Distance: </span>
+    <input type="number" step="0.0001" id="distance" name="distance"></input>
+
+    <span>Potential Energy: </span>
+    <input type="number" step="0.0001" id="energy" name="energy"></input>
+`
+
 let form = document.getElementById('inputForm');
 let select = document.getElementById('subtype');
 let div = document.getElementById('currentContext');
@@ -59,6 +71,10 @@ function changeContents(e) {
             div.innerHTML = electrostaticHTML;
             bindAddButtons();
             bindDeleteButtons();
+            break;
+        }
+        case 'electroDuo': {
+            div.innerHTML = electrostaticDuoHTML;
             break;
         }
     }
@@ -92,6 +108,18 @@ function calculateContents(e) {
             calculateStatic(html);
             break;
         }
+        case 'electroDuo': {
+            let html = {
+                q1: document.getElementById('charge1'),
+                q2: document.getElementById('charge2'),
+                r: document.getElementById('distance'),
+                E: document.getElementById('energy')
+            };
+
+            calculateDuo(html);
+            break;
+        }
+
     }
 }
 
@@ -206,6 +234,43 @@ function calculateStatic(table) {
         table.E.innerHTML = `${subTotal} J`;
     } else {
         alert('Fill in all of the blank values');
+    }
+}
+
+function calculateDuo(table) {
+    let values = {};
+    for (const k in table) {
+        v = table[k];
+        values[k] = null;
+        if (Number(v.value) || v.value == "0") values[k] = new Number(v.value);
+        console.log(values);
+    }
+
+    if (values.E instanceof Number) {
+        let hasQ1 = values.q1 instanceof Number;
+        let hasQ2 = values.q2 instanceof Number;
+        let hasR = values.r instanceof Number;
+        if (hasQ1 && hasQ2 && !hasR) {
+            values.r = values.q1 * values.q2 * 8.98755 / values.E / 1000;
+            table.r.value = values.r;
+        }
+        else if (hasQ1 && !hasQ2 && hasR) {
+            values.q2 = values.E * values.r * 1000 / 8.98755 / values.q1;
+            table.q2.value = values.q2;
+        }
+        else if (!hasQ1 && hasQ2 && hasR) {
+            values.q1 = values.E * values.r * 1000 / 8.98755 / values.q2;
+            table.q1.value = values.q1;
+        }
+        else if (hasQ1 && hasQ2 && hasR) {
+            values.E = null;
+            table.E.value = "";
+        }
+    }
+
+    if (values.q1 instanceof Number && values.q2 instanceof Number && values.r instanceof Number) {
+        values.E = new Number(values.q1 * values.q2 / values.r * 8.98755 / 1000);
+        table.E.value = values.E;
     }
 }
 
