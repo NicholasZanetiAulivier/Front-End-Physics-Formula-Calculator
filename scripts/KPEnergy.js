@@ -14,15 +14,15 @@ let inputElements = {
 }
 
 let value = {
-    mass: NaN,
-    velocity: NaN,
-    gravity: NaN,
-    height: NaN,
+    mass: null,
+    velocity: null,
+    gravity: null,
+    height: null,
 
-    kinetic: NaN,
-    potential: NaN,
+    kinetic: null,
+    potential: null,
 
-    mechanical: NaN,
+    mechanical: null,
 }
 
 let fields = ['mass', 'velocity', 'gravity', 'height', 'kinetic', 'potential', 'mechanical'];
@@ -32,9 +32,11 @@ function calculateResults(e) {
     e.preventDefault();
 
     fields.forEach((field) => {
-        value[field] = NaN;
-        if (Number(inputElements[field].value)) value[field] = Number(inputElements[field].value);
+        value[field] = null;
+        if (Number(inputElements[field].value) || inputElements[field].value == "0") value[field] = new Number(inputElements[field].value);
     });
+
+    console.log(value);
 
     if (mass == 0) {
         alert("Mass can't be 0");
@@ -42,19 +44,22 @@ function calculateResults(e) {
     }
 
     // Has ME
-    if (value.mechanical) {
+    if (value.mechanical instanceof Number) {
+        let hasKinetic = value.kinetic instanceof Number;
+        let hasPotential = value.potential instanceof Number;
+
         // ME = KE + ?
-        if (value.kinetic && !value.potential) {
-            value.potential = value.mechanical - value.kinetic
+        if (hasKinetic && !hasPotential) {
+            value.potential = new Number(value.mechanical - value.kinetic);
             inputElements.potential.value = value.potential;
         }
         //ME = ? + PE
-        else if (!value.kinetic && value.potential) {
-            value.kinetic = value.mechanical - value.potential;
+        else if (!hasKinetic && hasPotential) {
+            value.kinetic = new Number(value.mechanical - value.potential);
             inputElements.kinetic.value = value.kinetic;
         }
         //ME = KE + PE (Validate)
-        else if (value.kinetic && value.potential) {
+        else if (hasPotential && hasPotential) {
             let tempMechanical = value.kinetic + value.potential;
             if (tempMechanical != value.mechanical) {
                 alert('The values for Kinetic, Potential, and Mechanical energy does not make sense');
@@ -66,67 +71,71 @@ function calculateResults(e) {
     }
 
     //Has KE
-    if (value.kinetic) {
+    if (value.kinetic instanceof Number) {
+        let hasMass = value.mass instanceof Number;
+        let hasVelocity = value.velocity instanceof Number;
         //KE = 0.5 * m * ? ^2
-        if (value.mass && !value.velocity) {
-            value.velocity = Math.sqrt(value.kinetic * 2 / value.mass);
+        if (hasMass && !hasVelocity) {
+            value.velocity = new Number(Math.sqrt(value.kinetic * 2 / value.mass));
             inputElements.velocity.value = value.velocity;
         }
         //KE = 0.5 * ? * v^2
-        else if (!value.mass && value.velocity) {
-            value.mass = value.kinetic * 2 / value.velocity / value.velocity;
+        else if (!hasMass && hasVelocity) {
+            value.mass = new Number(value.kinetic * 2 / value.velocity / value.velocity);
             inputElements.mass.value = value.mass;
         }
         //KE = 0.5 * m * v^2 (Replace)
-        else if (value.mass && value.velocity) {
-            value.kinetic = NaN;
+        else if (hasMass && hasVelocity) {
+            value.kinetic = null;
             inputElements.kinetic.value = "";
         }
     }
 
     //Has PE
-    if (value.potential) {
+    if (value.potential instanceof Number) {
+        let hasGravity = value.gravity instanceof Number;
+        let hasMass = value.mass instanceof Number;
+        let hasHeight = value.height instanceof Number;
         //PE = m * ? * h
-        if (value.mass && !value.gravity && value.height) {
-            value.gravity = value.potential / value.mass / value.height;
+        if (hasMass && !hasGravity && hasHeight) {
+            value.gravity = new Number(value.potential / value.mass / value.height);
             inputElements.gravity.value = value.gravity;
         }
         //PE = ? * g * h
-        else if (!value.mass && value.gravity && value.height) {
-            value.mass = value.potential / value.gravity / value.height;
+        else if (!hasMass && hasGravity && hasHeight) {
+            value.mass = new Number(value.potential / value.gravity / value.height);
             inputElements.mass.value = value.mass;
         }
         //PE = m * g * ?
-        else if (value.mass && value.gravity && !value.height) {
-            value.height = value.potential / value.gravity / value.mass;
+        else if (hasMass && hasGravity && !hasHeight) {
+            value.height = new Number(value.potential / value.gravity / value.mass);
             inputElements.height.value = value.height;
         }
         //PE = m * g * h (Replace)
-        else if (value.mass && value.gravity && value.height) {
-            value.potential = NaN;
+        else if (hasMass && hasGravity && hasHeight) {
+            value.potential = null;
             inputElements.potential.value = "";
         }
     }
 
     //Recalculate
-    if (value.mass) {
-        if (value.velocity) {
-            value.kinetic = value.mass * value.velocity * value.velocity / 2;
+    if (value.mass instanceof Number) {
+        if (value.velocity instanceof Number) {
+            value.kinetic = new Number(value.mass * value.velocity * value.velocity / 2);
             inputElements.kinetic.value = value.kinetic;
             console.log('Kinetic Energy calculated');
         }
-        if (value.gravity && value.height) {
-            value.potential = value.mass * value.gravity * value.height;
+        if (value.gravity instanceof Number && value.height instanceof Number) {
+            value.potential = new Number(value.mass * value.gravity * value.height);
             inputElements.potential.value = value.potential;
             console.log('Potential Energy calculated')
         }
     }
 
-    if (value.kinetic && value.potential) {
-        value.mechanical = value.kinetic + value.potential;
+    if (value.kinetic instanceof Number && value.potential instanceof Number) {
+        value.mechanical = new Number(value.kinetic + value.potential);
         inputElements.mechanical.value = value.mechanical;
         console.log('Mechanical Energy calculated');
     }
-
 
 }
