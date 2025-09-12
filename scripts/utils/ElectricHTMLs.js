@@ -29,8 +29,8 @@ let EQVHTML = `
 
 let electrostaticHTML = `
     <div class="q1">
-    <label for="selfCharge"><b>Primary Charge</b> (&#181;C): </label>
-    <input type="number" step="0.0001" id="selfCharge" name="selfCharge" autocomplete="off"></input>
+        <label for="selfCharge"><b>Primary Charge</b> (&#181;C): </label>
+        <input type="number" step="0.0001" id="selfCharge" name="selfCharge" autocomplete="off"></input>
     </div>
 
     <div class="q">
