@@ -1,0 +1,4 @@
+#subtype:has(option[value="EQV"]:checked)~#currentContext {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}

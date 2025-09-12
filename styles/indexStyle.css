@@ -1,0 +1,36 @@
+.topnavbar {
+    width: 100%;
+    justify-content: center;
+}
+
+li {
+    float: none;
+}
+
+#bigContainer {
+    position: relative;
+    display: flex;
+    border: 2px solid #F6E8EA;
+    background-color: #F6E8EA;
+    margin: auto;
+    justify-content: center;
+    border-radius: 40px;
+    width: 70vw;
+    height: 70vh;
+}
+
+#bigContainer a {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    color: #000000;
+    background-color: aqua;
+    border-radius: 30px;
+    width: 30vw;
+    height: 60vh;
+    margin: auto;
+    margin-left: 3vw;
+    margin-right: 3vw;
+    text-decoration: none;
+}

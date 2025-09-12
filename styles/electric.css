@@ -1,0 +1,29 @@
+.results {
+    display: flex;
+    justify-content: center;
+    width: fit-content;
+    max-width: 100%;
+    height: fit-content;
+    align-items: center;
+}
+
+#inputForm {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: fit-content;
+    max-width: 100%;
+    height: fit-content;
+    align-items: center;
+}
+
+/*This makes sense*/
+/*
+#subtype:has(option[value="EQV"]:checked)
+#subtype:has(option[value="electrostatic"]:checked)
+#subtype:has(option[value="electroDuo"]:checked)
+#subtype:has(option[value="electroTrio"]:checked)
+*/
+#subtype:has(option[value="electroDuo"]:checked) {
+    background-color: black;
+}
