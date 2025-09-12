@@ -1,18 +1,30 @@
 let EQVHTML = `
-    <label for="ampere">Current: </label>
-    <input type="number" step="0.0001" id="ampere" name="ampere"></input><span>A</span>
-    <label for="currentDuration">Current Duration: </label>
-    <input type="number" step="0.0001" id="currentDuration" name="currentDuration"></input><span>s</span>
-    <label for="resistance">Resistance: </label>
-    <input type="number" step="0.0001" id="resistance" name="resistance"></input><span>ohm</span>
-    
-    <label for="volts">Voltage: </label>
-    <input type="number" step="0.0001" id="volts" name="volts"></input><span>V</span>
-    <label for="charge">Electric Charge: </label>
-    <input type="number" step="0.0001" id="charge" name="charge"></input><span>C</span>
+    <div class="I">
+        <label for="ampere">Current (A): </label>
+        <input type="number" step="0.0001" id="ampere" name="ampere"></input>
+    </div>
+    <div class="t">
+        <label for="currentDuration">Current Duration (s): </label>
+        <input type="number" step="0.0001" id="currentDuration" name="currentDuration"></input>
+    </div>
+    <div class="R">
+        <label for="resistance">Resistance (&#x2126;): </label>
+        <input type="number" step="0.0001" id="resistance" name="resistance"></input>
+    </div>
 
-    <label for="energy">Energy Transfer: </label>
-    <input type="number" step="0.0001" id="energy" name="energy"></input><span>J</span>
+    <div class="V">
+        <label for="volts">Voltage (V): </label>
+        <input type="number" step="0.0001" id="volts" name="volts"></input>
+    </div>
+    <div class="Q">
+        <label for="charge">Electric Charge (C: </label>
+        <input type="number" step="0.0001" id="charge" name="charge"></input>
+    </div>
+
+    <div class="E">
+        <label for="energy">Energy Transfer (J): </label>
+        <input type="number" step="0.0001" id="energy" name="energy"></input>
+    </div>
     `;
 
 let electrostaticHTML = `

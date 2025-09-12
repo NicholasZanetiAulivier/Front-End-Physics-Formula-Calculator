@@ -5,7 +5,7 @@ let form = document.getElementById('inputForm');
 let select = document.getElementById('subtype');
 let div = document.getElementById('currentContext');
 
-form.children[1].addEventListener('change', changeContents);
+form.children[0].addEventListener('change', changeContents);
 form.addEventListener('submit', calculateContents);
 
 changeContents(null);
