@@ -49,8 +49,8 @@ let electrostaticHTML = `
     </div>
 
     <div class="E">
-    <span>Electrostatic Potential Energy of Primary Charge: </span>
-    <span id="energy"></span>
+    <span><b>Electrostatic Energy</b> (J):</span>
+    <input type="number" step="0.0001" id="energy" readonly></input>
     </div>
 `;
 

@@ -106,7 +106,9 @@ function calculateStatic(table) {
 
     if (shouldContinue) {
         subTotal = subTotal * 8.98755 * table.q.value / 1000; // ke = Coulomb's Constant
-        table.E.innerHTML = `${subTotal} J`;
+        table.E.readOnly = false;
+        table.E.value = subTotal;
+        table.E.readOnly = true;
     } else {
         alert('Fill in all of the blank values (Cannot be 0!)');
     }
