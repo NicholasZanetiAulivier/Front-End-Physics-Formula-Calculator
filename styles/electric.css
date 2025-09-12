@@ -66,12 +66,9 @@ body {
     font-size: 32px;
     border-radius: 10px;
     padding: 5px;
+    transition: 0.5s;
 }
 
-/*This makes sense*/
-/*
-#subtype:has(option[value="EQV"]:checked)
-#subtype:has(option[value="electrostatic"]:checked)
-#subtype:has(option[value="electroDuo"]:checked)
-#subtype:has(option[value="electroTrio"]:checked)
-*/
+#calculate:hover {
+    background-color: cyan;
+}

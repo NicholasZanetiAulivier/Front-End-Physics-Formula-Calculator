@@ -11,6 +11,7 @@
     <link rel="stylesheet" type="text/css" href="styles/electric_EQV.css">
     <link rel="stylesheet" type="text/css" href="styles/electric_one-many.css">
     <link rel="stylesheet" type="text/css" href="styles/electric_duo.css">
+    <link rel="stylesheet" type="text/css" href="styles/electric_trio.css">
     <script type="module" src="scripts/ElectricEnergy.js" defer></script>
 </head>
 
@@ -89,40 +90,54 @@
 
                 <!--Pair Electrostatic-->
                 <div class="q1">
-                    <span>Charge 1: </span>
+                    <span><b>Charge 1</b> (&#181;C): </span>
                     <input type="number" step="0.0001" id="charge1" name="charge1"></input>
                 </div>
                 <div class="q2">
-                    <span>Charge 2: </span>
+                    <span><b>Charge 2</b> (&#181;C): </span>
                     <input type="number" step="0.0001" id="charge2" name="charge2"></input>
                 </div>
                 <div class="r">
-                    <span>Distance: </span>
+                    <span><b>Distance</b> (m): </span>
                     <input type="number" step="0.0001" id="distance" name="distance"></input>
                 </div>
 
                 <div class="E">
-                    <span>Potential Energy: </span>
-                    <input type="number" step="0.0001" id="energy" name="energy"></input>
+                    <span><b>Potential Energy</b> (J): </span>
+                    <input type="number" step="0.0001" id="energy" name="energy" readonly></input>
                 </div>
 
                 <!--Triple Electrostatic-->
-                <span>Charge 1: </span>
-                <input type="number" step="0.0001" id="charge1" name="charge1"></input>
-                <span>Charge 2: </span>
-                <input type="number" step="0.0001" id="charge2" name="charge2"></input>
-                <span>Charge 3: </span>
-                <input type="number" step="0.0001" id="charge3" name="charge3"></input>
+                <div class="q1">
+                    <span>Charge 1: </span>
+                    <input type="number" step="0.0001" id="charge1" name="charge1"></input>
+                </div>
+                <div class="q1">
+                    <span>Charge 3: </span>
+                    <input type="number" step="0.0001" id="charge2" name="charge2"></input>
+                </div>
+                <div class="q3">
+                    <span>Charge 3: </span>
+                    <input type="number" step="0.0001" id="charge3" name="charge3"></input>
+                </div>
 
-                <span>Distance 1-2: </span>
-                <input type="number" step="0.0001" id="distance12" name="distance12"></input>
-                <span>Distance 1-3: </span>
-                <input type="number" step="0.0001" id="distance13" name="distance13"></input>
-                <span>Distance 2-3: </span>
-                <input type="number" step="0.0001" id="distance23" name="distance23"></input>
+                <div class="r12">
+                    <span>Distance 1-2: </span>
+                    <input type="number" step="0.0001" id="distance12" name="distance12"></input>
+                </div>
+                <div class="r13">
+                    <span>Distance 1-3: </span>
+                    <input type="number" step="0.0001" id="distance13" name="distance13"></input>
+                </div>
+                <div class="r23">
+                    <span>Distance 2-3: </span>
+                    <input type="number" step="0.0001" id="distance23" name="distance23"></input>
+                </div>
 
-                <span>Potential Energy: </span>
-                <span id="energy"></span>
+                <div class="E">
+                    <span>Potential Energy: </span>
+                    <input type="number" step="0.0001" id="energy" name="energy" readonly></input>
+                </div>
                 <!--END-->
             </div>
             <input type="submit" id="calculate" value="Calculate"></input>
