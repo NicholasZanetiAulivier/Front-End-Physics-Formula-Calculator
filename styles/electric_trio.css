@@ -1,4 +1,4 @@
-#subtype:has(option[value="EQV"]:checked)~#currentContext {
+#subtype:has(option[value="electroTrio"]:checked)~#currentContext {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     display: grid;
     align-items: center;
@@ -7,20 +7,20 @@
     padding-bottom: 20px;
 }
 
-#subtype:has(option[value="EQV"]:checked)~#currentContext div {
+#subtype:has(option[value="electroTrio"]:checked)~#currentContext div {
     height: fit-content;
     display: flex;
     flex-direction: column;
     margin-left: 20px;
 }
 
-#subtype:has(option[value="EQV"]:checked)~#currentContext div label {
+#subtype:has(option[value="electroTrio"]:checked)~#currentContext div span {
     font-size: 20px;
     margin: 10px 20px;
     margin-bottom: 2px;
 }
 
-#subtype:has(option[value="EQV"]:checked)~#currentContext div input[type="number"] {
+#subtype:has(option[value="electroTrio"]:checked)~#currentContext div input[type="number"] {
     font-size: 20px;
     height: fit-content;
     border-radius: 10px;
@@ -29,7 +29,7 @@
     transition: 0.5s;
 }
 
-#subtype:has(option[value="EQV"]:checked)~#currentContext div input[type="number"]:focus,
-#subtype:has(option[value="EQV"]:checked)~#currentContext div input[type="number"]:hover {
+#subtype:has(option[value="electroTrio"]:checked)~#currentContext div input[type="number"]:focus,
+#subtype:has(option[value="electroTrio"]:checked)~#currentContext div input[type="number"]:hover {
     background-color: azure;
 }

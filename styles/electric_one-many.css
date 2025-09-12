@@ -1,0 +1,66 @@
+#subtype:has(option[value="electrostatic"]:checked)~#currentContext {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: grid;
+    align-items: center;
+    justify-content: start;
+    text-align: left;
+    padding-bottom: 20px;
+    padding-top: 10px;
+}
+
+
+#subtype:has(option[value="electrostatic"]:checked)~#currentContext div {
+    height: fit-content;
+    /* display: flex; */
+    flex-direction: column;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+#subtype:has(option[value="electrostatic"]:checked)~#currentContext .q {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+#subtype:has(option[value="electrostatic"]:checked)~#currentContext div.q button {
+    display: inline;
+    width: 30px;
+    height: 30px;
+    color: aliceblue;
+    border-style: solid;
+    border-radius: 5px;
+}
+
+#subtype:has(option[value="electrostatic"]:checked)~#currentContext .q .addCharge {
+    background-color: #00b5ec;
+}
+
+#subtype:has(option[value="electrostatic"]:checked)~#currentContext .q .deleteCharge {
+    background-color: red;
+}
+
+#subtype:has(option[value="electrostatic"]:checked)~#currentContext div label {
+    font-size: 20px;
+    margin: 10px 20px;
+}
+
+#subtype:has(option[value="electrostatic"]:checked)~#currentContext div input[type="number"] {
+    font-size: 20px;
+    height: fit-content;
+    border-radius: 10px;
+    padding: 5px;
+    padding-left: 10px;
+    transition: 0.5s;
+}
+
+#subtype:has(option[value="electrostatic"]:checked)~#currentContext div input[type="number"]:focus,
+#subtype:has(option[value="electrostatic"]:checked)~#currentContext div input[type="number"]:hover {
+    background-color: azure;
+}
+
+#subtype:has(option[value="electrostatic"]:checked)~#currentContext div button {
+    display: inline-block;
+    font-size: large;
+    width: fit-content;
+    height: fit-content;
+}

@@ -6,10 +6,12 @@
     <title>Electricty</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" type="text/css" href="styles/topnavbar.css">
-    <link rel="stylesheet" type="text/css" href="styles/global.css">
 
     <link rel="stylesheet" type="text/css" href="styles/electric.css">
     <link rel="stylesheet" type="text/css" href="styles/electric_EQV.css">
+    <link rel="stylesheet" type="text/css" href="styles/electric_one-many.css">
+    <link rel="stylesheet" type="text/css" href="styles/electric_duo.css">
+    <link rel="stylesheet" type="text/css" href="styles/electric_trio.css">
     <script type="module" src="scripts/ElectricEnergy.js" defer></script>
 </head>
 
@@ -21,8 +23,9 @@
         </li>
     </ul>
     <div class="results">
+        <div id="facts">
+        </div>
         <form action="_" id="inputForm" novalidate>
-            <label for="subtype">Which type of energy equation?</label>
             <select name="subtype" id="subtype">
                 <option value="EQV">Energy Transfer(E = QV)</option>
                 <option value="electrostatic">Electrostatic: One-Many</option>
@@ -30,74 +33,17 @@
                 <option value="electroTrio">Electrostatic: 3 Charges</option>
             </select>
             <div id="currentContext">
-                <!--Will be replaced immediately-->
+                <!--Will be replaced immediately, use ElectricHTML.js as reference-->
                 <!--EQV-->
-                <span>Current: </span>
-                <input type="number" step="0.0001" id="ampere" name="ampere"></input>
-                <span>Current Duration: </span>
-                <input type="number" step="0.0001" id="currentDuration" name="currentDuration"></input>
-                <span>Resistance: </span>
-                <input type="number" step="0.0001" id="resistance" name="resistance"></input>
-
-                <span>Voltage: </span>
-                <input type="number" step="0.0001" id="volts" name="volts"></input>
-                <span>Electric Charge: </span>
-                <input type="number" step="0.0001" id="charge" name="charge"></input>
-
-                <span>Energy Transfer: </span>
-                <input type="number" step="0.0001" id="energy" name="energy"></input>
-
                 <!--One-Many Electrostatic-->
-                <span>Primary Charge: </span>
-                <input type="number" step="0.0001" id="selfCharge" name="selfCharge"></input>&#181;C
-
-                <div class="q">
-                    <span>Additional Charge:</span>
-                    <span>Charge: </span>
-                    <input type="number" step="0.0001" class="charge" name="charge"></input>&#181;C
-                    <span>Distance: </span>
-                    <input type="number" step="0.0001" class="distance" name="distance"></input>
-                    <button type="button" class="addCharge">Add</button>
-                    <button type="button" class="deleteCharge">Delete</button>
-                </div>
-                <span>Electrostatic Potential Energy of Primary Charge: </span>
-                <span id="energy"></span>
-
                 <!--Pair Electrostatic-->
-                <span>Charge 1: </span>
-                <input type="number" step="0.0001" id="charge1" name="charge1"></input>
-                <span>Charge 2: </span>
-                <input type="number" step="0.0001" id="charge2" name="charge2"></input>
-                <span>Distance: </span>
-                <input type="number" step="0.0001" id="distance" name="distance"></input>
-
-                <span>Potential Energy: </span>
-                <input type="number" step="0.0001" id="energy" name="energy"></input>
-
                 <!--Triple Electrostatic-->
-                <span>Charge 1: </span>
-                <input type="number" step="0.0001" id="charge1" name="charge1"></input>
-                <span>Charge 2: </span>
-                <input type="number" step="0.0001" id="charge2" name="charge2"></input>
-                <span>Charge 3: </span>
-                <input type="number" step="0.0001" id="charge3" name="charge3"></input>
-
-                <span>Distance 1-2: </span>
-                <input type="number" step="0.0001" id="distance12" name="distance12"></input>
-                <span>Distance 1-3: </span>
-                <input type="number" step="0.0001" id="distance13" name="distance13"></input>
-                <span>Distance 2-3: </span>
-                <input type="number" step="0.0001" id="distance23" name="distance23"></input>
-
-                <span>Potential Energy: </span>
-                <span id="energy"></span>
                 <!--END-->
             </div>
-            <input type="submit" id="calculate">
-            <div id="currentResults">
-
-            </div>
+            <input type="submit" id="calculate" value="Calculate"></input>
         </form>
+        <div id="formula">
+        </div>
     </div>
 </body>
 

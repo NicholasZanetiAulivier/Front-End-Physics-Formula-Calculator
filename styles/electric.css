@@ -1,29 +1,74 @@
+body {
+    background-color: #84DCCF;
+}
+
 .results {
+    position: relative;
     display: flex;
-    justify-content: center;
+    margin: auto;
+    margin-top: 100px;
+    padding: 0;
     width: fit-content;
-    max-width: 100%;
     height: fit-content;
-    align-items: center;
+    text-align: center;
+}
+
+#facts {
+    background-color: aliceblue;
+    width: 500px;
+    height: 675px;
+    border-radius: 10px;
+    margin-left: 30px;
+    margin-right: 30px;
+}
+
+#formula {
+    background-color: aliceblue;
+    width: 500px;
+    height: 675px;
+    border-radius: 10px;
+    margin-left: 30px;
+    margin-right: 30px;
 }
 
 #inputForm {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
     width: fit-content;
-    max-width: 100%;
     height: fit-content;
-    align-items: center;
 }
 
-/*This makes sense*/
-/*
-#subtype:has(option[value="EQV"]:checked)
-#subtype:has(option[value="electrostatic"]:checked)
-#subtype:has(option[value="electroDuo"]:checked)
-#subtype:has(option[value="electroTrio"]:checked)
-*/
-#subtype:has(option[value="electroDuo"]:checked) {
-    background-color: black;
+#subtype {
+    display: inline-block;
+    margin: auto;
+    margin-bottom: 10px;
+    width: 300px;
+    font-size: medium;
+    font-weight: bold;
+    height: fit-content;
+    padding: 10px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+#subtype option {
+    transition: 0.5s;
+}
+
+#currentContext {
+    width: 300px;
+    height: fit-content;
+    background-color: rgb(255, 237, 237);
+    border-radius: 40px;
+}
+
+#calculate {
+    background-color: #FFFFFF;
+    margin-top: 10px;
+    font-size: 32px;
+    border-radius: 10px;
+    padding: 5px;
+    transition: 0.5s;
+}
+
+#calculate:hover {
+    background-color: cyan;
 }

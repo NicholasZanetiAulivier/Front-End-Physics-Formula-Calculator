@@ -5,7 +5,7 @@ let form = document.getElementById('inputForm');
 let select = document.getElementById('subtype');
 let div = document.getElementById('currentContext');
 
-form.children[1].addEventListener('change', changeContents);
+form.children[0].addEventListener('change', changeContents);
 form.addEventListener('submit', calculateContents);
 
 changeContents(null);
@@ -109,8 +109,8 @@ function addCharge(e) {
     let newCharge = document.createElement('div');
     newCharge.innerHTML = electrostaticChargeTemplate;
     newCharge.className = 'q';
-    e.target.parentElement.after(newCharge);
-    let children = newCharge.children;
+    e.target.parentElement.parentElement.after(newCharge);
+    let children = newCharge.children[2].children;
     for (let i = 0; i < children.length; i++) {
         if (children[i].className == 'addCharge') {
             children[i].onclick = addCharge;
@@ -126,6 +126,7 @@ function deleteCharge(e) {
         let target = e.target;
         let parent = target.parentElement;
         let parentsParent = parent.parentElement;
-        parentsParent.removeChild(parent);
+        let grandParent = parentsParent.parentElement
+        grandParent.removeChild(parentsParent);
     }
 }
