@@ -177,7 +177,9 @@ function calculateTrio(table) {
         let temp23 = values.q3 * values.q2 / values.r23;
 
         values.E = (temp12 + temp13 + temp23) * 8.98755 / 1000;
+        table.E.readOnly = false;
         table.E.innerHTML = values.E;
+        table.E.readOnly = true;
     }
 
 }

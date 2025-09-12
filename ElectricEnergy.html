@@ -10,6 +10,7 @@
     <link rel="stylesheet" type="text/css" href="styles/electric.css">
     <link rel="stylesheet" type="text/css" href="styles/electric_EQV.css">
     <link rel="stylesheet" type="text/css" href="styles/electric_one-many.css">
+    <link rel="stylesheet" type="text/css" href="styles/electric_duo.css">
     <script type="module" src="scripts/ElectricEnergy.js" defer></script>
 </head>
 
@@ -62,38 +63,48 @@
 
                 <!--One-Many Electrostatic-->
                 <div class="q1">
-                    <label for="selfCharge">Primary Charge: </label>
+                    <label for="selfCharge"><b>Primary Charge</b> (&#181;C): </label>
                     <input type="number" step="0.0001" id="selfCharge" name="selfCharge"></input>
                 </div>
 
                 <div class="q">
                     <div class="qO">
-                        <span>Charge: </span>
-                        <input type="number" step="0.0001" class="charge" name="charge"></input>&#181;C
+                        <span><b>Charge</b> (&#181;C): </span>
+                        <input type="number" step="0.0001" class="charge" name="charge"></input>
                     </div>
                     <div class="rO">
-                        <span>Distance: </span>
+                        <span><b>Distance</b> (m): </span>
                         <input type="number" step="0.0001" class="distance" name="distance"></input>
                     </div>
-                    <button type="button" class="addCharge">Add</button>
-                    <button type="button" class="deleteCharge">Delete</button>
+                    <div>
+                        <button type="button" class="addCharge">+</button>
+                        <button type="button" class="deleteCharge">-</button>
+                    </div>
                 </div>
 
                 <div class="E">
-                    <span>Electrostatic Potential Energy of Primary Charge: </span>
-                    <span id="energy"></span>
+                    <span><b>Electrostatic Energy</b> (J):</span>
+                    <input type="number" step="0.0001" id="energy" readonly></input>
                 </div>
 
                 <!--Pair Electrostatic-->
-                <span>Charge 1: </span>
-                <input type="number" step="0.0001" id="charge1" name="charge1"></input>
-                <span>Charge 2: </span>
-                <input type="number" step="0.0001" id="charge2" name="charge2"></input>
-                <span>Distance: </span>
-                <input type="number" step="0.0001" id="distance" name="distance"></input>
+                <div class="q1">
+                    <span>Charge 1: </span>
+                    <input type="number" step="0.0001" id="charge1" name="charge1"></input>
+                </div>
+                <div class="q2">
+                    <span>Charge 2: </span>
+                    <input type="number" step="0.0001" id="charge2" name="charge2"></input>
+                </div>
+                <div class="r">
+                    <span>Distance: </span>
+                    <input type="number" step="0.0001" id="distance" name="distance"></input>
+                </div>
 
-                <span>Potential Energy: </span>
-                <input type="number" step="0.0001" id="energy" name="energy"></input>
+                <div class="E">
+                    <span>Potential Energy: </span>
+                    <input type="number" step="0.0001" id="energy" name="energy"></input>
+                </div>
 
                 <!--Triple Electrostatic-->
                 <span>Charge 1: </span>

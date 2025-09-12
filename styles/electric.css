@@ -55,7 +55,7 @@ body {
 
 #currentContext {
     width: 300px;
-    height: 600px;
+    height: fit-content;
     background-color: rgb(255, 237, 237);
     border-radius: 40px;
 }
@@ -75,6 +75,3 @@ body {
 #subtype:has(option[value="electroDuo"]:checked)
 #subtype:has(option[value="electroTrio"]:checked)
 */
-#subtype:has(option[value="electroDuo"]:checked) {
-    background-color: black;
-}

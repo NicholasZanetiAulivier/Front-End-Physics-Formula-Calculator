@@ -70,15 +70,23 @@ let electrostaticChargeTemplate = `
 `;
 
 let electrostaticDuoHTML = `
-    <span>Charge 1: </span>
-    <input type="number" step="0.0001" id="charge1" name="charge1"></input>
-    <span>Charge 2: </span>
-    <input type="number" step="0.0001" id="charge2" name="charge2"></input>
-    <span>Distance: </span>
-    <input type="number" step="0.0001" id="distance" name="distance"></input>
+    <div class="q1">
+        <span><b>Charge 1</b> (&#181;C): </span>
+        <input type="number" step="0.0001" id="charge1" name="charge1"></input>
+    </div>
+    <div class="q2">
+        <span><b>Charge 2</b> (&#181;C): </span>
+        <input type="number" step="0.0001" id="charge2" name="charge2"></input>
+    </div>
+    <div class="r">
+        <span><b>Distance</b> (m): </span>
+        <input type="number" step="0.0001" id="distance" name="distance"></input>
+    </div>
 
-    <span>Potential Energy: </span>
-    <input type="number" step="0.0001" id="energy" name="energy"></input>
+    <div class="E">
+        <span><b>Potential Energy</b> (J): </span>
+        <input type="number" step="0.0001" id="energy" name="energy" readonly></input>
+    </div>
 `
 
 let electrostaticTrioHTML = `
