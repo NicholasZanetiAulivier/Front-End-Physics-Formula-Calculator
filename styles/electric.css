@@ -39,8 +39,10 @@ body {
 #subtype {
     display: inline-block;
     margin: auto;
+    margin-bottom: 10px;
     width: 300px;
     font-size: medium;
+    font-weight: bold;
     height: fit-content;
     padding: 10px;
     border-radius: 10px;
@@ -54,8 +56,16 @@ body {
 #currentContext {
     width: 300px;
     height: 600px;
-    background-color: rgb(232, 253, 246);
+    background-color: rgb(255, 237, 237);
     border-radius: 40px;
+}
+
+#calculate {
+    background-color: #FFFFFF;
+    margin-top: 10px;
+    font-size: 32px;
+    border-radius: 10px;
+    padding: 5px;
 }
 
 /*This makes sense*/

@@ -26,3 +26,7 @@
     padding: 5px;
     padding-left: 10px;
 }
+
+#subtype:has(option[value="EQV"]:checked)~#currentContext div input[type="number"]:focus {
+    background-color: azure;
+}

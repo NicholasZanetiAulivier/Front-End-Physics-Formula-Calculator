@@ -1,56 +1,72 @@
 let EQVHTML = `
     <div class="I">
-        <label for="ampere">Current (A): </label>
+        <label for="ampere"><b>Current</b> (A): </label>
         <input type="number" step="0.0001" id="ampere" name="ampere"></input>
     </div>
     <div class="t">
-        <label for="currentDuration">Current Duration (s): </label>
+        <label for="currentDuration"><b>Current Duration</b> (s): </label>
         <input type="number" step="0.0001" id="currentDuration" name="currentDuration"></input>
     </div>
     <div class="R">
-        <label for="resistance">Resistance (&#x2126;): </label>
+        <label for="resistance"><b>Resistance</b> (&#x2126;): </label>
         <input type="number" step="0.0001" id="resistance" name="resistance"></input>
     </div>
 
     <div class="V">
-        <label for="volts">Voltage (V): </label>
+        <label for="volts"><b>Voltage</b> (V): </label>
         <input type="number" step="0.0001" id="volts" name="volts"></input>
     </div>
     <div class="Q">
-        <label for="charge">Electric Charge (C: </label>
+        <label for="charge"><b>Electric Charge</b> (C): </label>
         <input type="number" step="0.0001" id="charge" name="charge"></input>
     </div>
 
     <div class="E">
-        <label for="energy">Energy Transfer (J): </label>
+        <label for="energy"><b>Energy Transfer</b> (J): </label>
         <input type="number" step="0.0001" id="energy" name="energy"></input>
     </div>
     `;
 
 let electrostaticHTML = `
-    <label for="selfCharge">Primary Charge: </label>
-    <input type="number" step="0.0001" id="selfCharge" name="selfCharge"></input>&#181;C
+    <div class="q1">
+    <label for="selfCharge"><b>Primary Charge</b> (&#181;C): </label>
+    <input type="number" step="0.0001" id="selfCharge" name="selfCharge"></input>
+    </div>
 
     <div class="q">
-        <span>Additional Charge:</span>
-        <span>Charge: </span>
-        <input type="number" step="0.0001" class="charge" name="charge"></input>&#181;C
-        <span>Distance: </span> 
-        <input type="number" step="0.0001" class="distance" name="distance"></input>
-        <button type="button" class="addCharge">Add</button>
-        <button type="button" class="deleteCharge">Delete</button>
+        <div class="qO">
+            <span><b>Charge</b> (&#181;C): </span>
+            <input type="number" step="0.0001" class="charge" name="charge"></input>
+        </div>
+        <div class="rO">
+            <span><b>Distance</b> (m): </span>
+            <input type="number" step="0.0001" class="distance" name="distance"></input>
+        </div>
+        <div>
+            <button type="button" class="addCharge">+</button>
+            <button type="button" class="deleteCharge">-</button>
+        </div>
     </div>
+
+    <div class="E">
     <span>Electrostatic Potential Energy of Primary Charge: </span>
     <span id="energy"></span>
+    </div>
 `;
 
 let electrostaticChargeTemplate = `
-        <span>Charge: </span>
-        <input type="number" step="0.0001" class="charge" name="charge"></input>&#181;C
-        <span>Distance: </span> 
-        <input type="number" step="0.0001" class="distance" name="distance"></input>
-        <button type="button" class="addCharge">Add</button>
-        <button type="button" class="deleteCharge">Delete</button>
+        <div class="qO">
+            <span><b>Charge</b> (&#181;C): </span>
+            <input type="number" step="0.0001" class="charge" name="charge"></input>
+        </div>
+        <div class="rO">
+            <span><b>Distance</b> (m): </span>
+            <input type="number" step="0.0001" class="distance" name="distance"></input>
+        </div>
+        <div>
+            <button type="button" class="addCharge">+</button>
+            <button type="button" class="deleteCharge">-</button>
+        </div>
 `;
 
 let electrostaticDuoHTML = `

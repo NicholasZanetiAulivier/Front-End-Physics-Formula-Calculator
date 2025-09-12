@@ -1,6 +1,7 @@
 #topnavbar {
     background-color: #312F2F;
     position: fixed;
+    z-index: 1000;
 
     list-style-type: none;
     padding: 0;
