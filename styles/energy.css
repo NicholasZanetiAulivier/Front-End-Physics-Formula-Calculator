@@ -34,7 +34,7 @@ div span {
     margin-left: 20px;
 }
 
-div input {
+input {
     font-size: 30px;
 }
 
@@ -72,4 +72,54 @@ input[type="number"]:focus {
     border-radius: 10px;
     padding: 5px;
     transition: 0.5s;
+}
+
+@media only screen and (max-width: 600px) {
+    .results {
+        margin-top: 18vw;
+    }
+
+    #inputForm {
+        width: 80vw;
+        border-radius: 5vw;
+        padding: 6vw;
+        padding-top: 2vw;
+    }
+
+    div span {
+        font-size: 4vw;
+        margin-top: 2vw;
+        margin-bottom: 2vw;
+        margin-left: 2vw;
+    }
+
+    input {
+        font-size: 4vw;
+    }
+
+    input[type="number"] {
+        width: 50vw;
+        border-radius: 5vw;
+        padding: 2vw;
+        padding-top: 1vw;
+        padding-bottom: 1vw;
+    }
+
+    select {
+        font-size: 3.5vw;
+        width: 20vw;
+        height: fit-content;
+        border-radius: 2vw;
+        border-width: 2px;
+        padding: 0;
+        padding-top: 1vw;
+        padding-bottom: 1vw;
+        border-color: black;
+    }
+
+    .ke input[type="number"],
+    .pe input[type="number"],
+    .me input[type="number"] {
+        width: 70vw;
+    }
 }

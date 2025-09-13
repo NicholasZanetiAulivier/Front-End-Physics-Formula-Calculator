@@ -40,13 +40,13 @@
     }
 
     #subtype:has(option[value="EQV"]:checked)~#currentContext div label {
-        font-size: 5vw;
+        font-size: 4vw;
         margin: 1vw 2vw;
         margin-bottom: 2vw;
     }
 
     #subtype:has(option[value="EQV"]:checked)~#currentContext div input[type="number"] {
-        font-size: 6vw;
+        font-size: 4vw;
         height: fit-content;
         width: 70vw;
         border-radius: 10vw;

@@ -82,24 +82,30 @@
     }
 
     #subtype:has(option[value="electrostatic"]:checked)~#currentContext div.q button {
-        width: 9vw;
-        height: 9vw;
+        width: 8vw;
+        height: 8vw;
         border-radius: 2vw;
     }
 
     #subtype:has(option[value="electrostatic"]:checked)~#currentContext div label {
-        font-size: 6vw;
+        font-size: 4vw;
         margin: 1vw 5vw;
     }
 
     #subtype:has(option[value="electrostatic"]:checked)~#currentContext div input[type="number"] {
-        font-size: 5vw;
+        font-size: 4vw;
+        width: 60vw;
         border-radius: 2vw;
         padding: 2vw;
         padding-left: 2vw;
     }
 
     #subtype:has(option[value="electrostatic"]:checked)~#currentContext div.q div span {
-        font-size: 5vw;
+        font-size: 4vw;
     }
+
+    #subtype:has(option[value="electrostatic"]:checked)~#currentContext div.E span {
+        font-size: 4vw;
+    }
+
 }

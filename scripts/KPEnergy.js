@@ -57,6 +57,18 @@ function calculateResults(e) {
         alert("Mass can't be 0");
         return;
     }
+    if (mass < 0) {
+        alert("Antimatter physics is not supported");
+        return;
+    }
+    if (height < 0) {
+        alert("Underground physics is not supported");
+        return;
+    }
+    if (gravity < 0) {
+        alert("White hole physics is not supported");
+        return;
+    }
 
     // Has ME
     if (value.mechanical instanceof Number) {

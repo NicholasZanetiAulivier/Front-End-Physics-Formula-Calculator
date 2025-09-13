@@ -44,13 +44,14 @@
     }
 
     #subtype:has(option[value="electroDuo"]:checked)~#currentContext div span {
-        font-size: 5vw;
+        font-size: 4vw;
         margin: 3vw 2vw;
         margin-bottom: 3vw;
     }
 
     #subtype:has(option[value="electroDuo"]:checked)~#currentContext div input[type="number"] {
-        font-size: 5.2vw;
+        font-size: 4vw;
+        width: 65vw;
         border-radius: 2vw;
         padding: 2vw;
         padding-left: 2vw;
