@@ -7,17 +7,17 @@ let EQVFormula = `
 `;
 
 let electrostaticFormula = `
-<h1>Energy of a charge in a system of charges</h1>
+<h1>Energy of a Charge in a System of Charges</h1>
     <img src="SVG/one-many.svg" alt="Electrostatic formula" width="300">
 `;
 
 let electroDuoFormula = `
-<h1>Energy of a system of 2 charges</h1>
+<h1>Energy of a System of 2 Charges</h1>
 <img src="SVG/duo.svg" alt="Electrostatic formula" width="400" width="300">
 `;
 
 let electroTrioFormula = `
-<h1>Energy of a system of 3 charges</h1>
+<h1>Energy of a System of 3 Charges</h1>
     <img src="SVG/trio.svg" alt="Electrostatic formula" width="400">
 `;
 
