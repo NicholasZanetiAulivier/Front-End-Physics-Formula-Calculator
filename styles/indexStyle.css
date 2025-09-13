@@ -56,3 +56,22 @@ li {
     background-color: #eeff00;
     color: #ff0000;
 }
+
+@media only screen and (max-width: 600px) {
+    #bigContainer {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    #bigContainer a {
+        width: 60vw;
+        height: 30vh;
+        margin-top: 3vh;
+        margin-bottom: 3vh;
+    }
+
+    #bigContainer a span {
+        font-size: 10vw;
+    }
+}
