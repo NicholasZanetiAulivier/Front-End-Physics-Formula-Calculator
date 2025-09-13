@@ -72,3 +72,36 @@ body {
 #calculate:hover {
     background-color: cyan;
 }
+
+#facts {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+#facts h1 {
+    margin: 20px;
+}
+
+#facts ul {
+    width: fit-content;
+    padding-left: 20px;
+    padding-right: 20px;
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#facts ul li {
+    width: 100%;
+    margin: 10px 0;
+    background-color: #FFFFFF;
+    display: flex;
+    justify-content: center;
+}
+
+#facts a {
+    text-align: center;
+    text-decoration: none;
+    color: #000000;
+    font-size: 40px;
+}

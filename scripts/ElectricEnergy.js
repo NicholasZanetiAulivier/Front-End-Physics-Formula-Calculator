@@ -1,9 +1,12 @@
 import { calculateDuo, calculateStatic, calculateTrio, calculateEQV } from "/scripts/utils/ElectricFunctions.js";
 import { electrostaticChargeTemplate, electrostaticDuoHTML, electrostaticTrioHTML, electrostaticHTML, EQVHTML } from "/scripts/utils/ElectricHTMLs.js";
+import { electrostaticFacts, EQVFacts } from "./utils/ElectricText.js";
 
 let form = document.getElementById('inputForm');
 let select = document.getElementById('subtype');
 let div = document.getElementById('currentContext');
+let facts = document.getElementById('facts');
+let formula = document.getElementById('formula');
 
 form.children[0].addEventListener('change', changeContents);
 form.addEventListener('submit', calculateContents);
@@ -13,20 +16,24 @@ function changeContents(e) {
     switch (select.value) {
         case 'EQV': {
             div.innerHTML = EQVHTML;
+            facts.innerHTML = EQVFacts;
             break;
         }
         case 'electrostatic': {
             div.innerHTML = electrostaticHTML;
             bindAddButtons();
             bindDeleteButtons();
+            facts.innerHTML = electrostaticFacts;
             break;
         }
         case 'electroDuo': {
             div.innerHTML = electrostaticDuoHTML;
+            facts.innerHTML = electrostaticFacts;
             break;
         }
         case 'electroTrio': {
             div.innerHTML = electrostaticTrioHTML;
+            facts.innerHTML = electrostaticFacts;
             break;
         }
     }
