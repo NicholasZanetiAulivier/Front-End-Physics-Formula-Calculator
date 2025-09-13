@@ -33,3 +33,24 @@
 #subtype:has(option[value="EQV"]:checked)~#currentContext div input[type="number"]:hover {
     background-color: azure;
 }
+
+@media only screen and (max-width: 600px) {
+    #subtype:has(option[value="EQV"]:checked)~#currentContext div {
+        margin-left: 3vw;
+    }
+
+    #subtype:has(option[value="EQV"]:checked)~#currentContext div label {
+        font-size: 4vw;
+        margin: 1vw 2vw;
+        margin-bottom: 2vw;
+    }
+
+    #subtype:has(option[value="EQV"]:checked)~#currentContext div input[type="number"] {
+        font-size: 4vw;
+        height: fit-content;
+        width: 70vw;
+        border-radius: 10vw;
+        padding: 0.7vw;
+        padding-left: 1vw;
+    }
+}

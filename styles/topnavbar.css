@@ -1,5 +1,5 @@
 #topnavbar {
-    background-color: #312F2F;
+    background-color: #00171F;
     position: fixed;
     z-index: 1000;
 
@@ -22,6 +22,7 @@ li {
     text-decoration: none;
     font-size: 64px;
     font-weight: bold;
+    margin-left: 10px;
     padding: 2px;
     justify-self: center;
 }
@@ -37,4 +38,24 @@ li {
     font-weight: bold;
     padding-left: 50px;
     padding-bottom: 5px;
+}
+
+@media only screen and (max-width: 600px) {
+    #topnavbar {
+        z-index: 1000;
+        width: 100vw;
+    }
+
+    #topnavbar {
+        display: flex;
+        justify-content: center;
+    }
+
+    #topnavbar li a {
+        font-size: 10vw;
+    }
+
+    #topnavbar li span {
+        display: none;
+    }
 }

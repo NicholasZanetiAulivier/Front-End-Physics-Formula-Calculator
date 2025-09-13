@@ -11,7 +11,7 @@ li {
     position: relative;
     display: flex;
     border: 2px solid #F6E8EA;
-    background-color: #F6E8EA;
+    background-color: #FFFFFF;
     margin: auto;
     justify-content: center;
     border-radius: 40px;
@@ -21,16 +21,57 @@ li {
 
 #bigContainer a {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     text-align: center;
     align-items: center;
     color: #000000;
-    background-color: aqua;
+    background-color: #FFFDF7;
+    border-color: #cecece;
     border-radius: 30px;
+    border-width: 1px;
+    border-style: solid;
     width: 30vw;
     height: 60vh;
     margin: auto;
     margin-left: 3vw;
     margin-right: 3vw;
     text-decoration: none;
+    overflow: hidden;
+    transition: 0.2s;
+    transition-timing-function: ease-out;
+}
+
+#bigContainer a span {
+    font-size: 4vw;
+    font-weight: bold;
+}
+
+#one:hover {
+    background-color: #f87000;
+    color: #FFFFFF;
+}
+
+#two:hover {
+    background-color: #eeff00;
+    color: #ff0000;
+}
+
+@media only screen and (max-width: 600px) {
+    #bigContainer {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    #bigContainer a {
+        width: 60vw;
+        height: 30vh;
+        margin-top: 3vh;
+        margin-bottom: 3vh;
+    }
+
+    #bigContainer a span {
+        font-size: 10vw;
+    }
 }
