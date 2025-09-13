@@ -1,0 +1,10 @@
+.results {
+    position: relative;
+    display: flex;
+    margin: auto;
+    margin-top: 100px;
+    padding: 0;
+    width: fit-content;
+    height: fit-content;
+    text-align: center;
+}
