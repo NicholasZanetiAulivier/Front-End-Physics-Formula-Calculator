@@ -11,7 +11,7 @@ li {
     position: relative;
     display: flex;
     border: 2px solid #F6E8EA;
-    background-color: #F6E8EA;
+    background-color: #FFFFFF;
     margin: auto;
     justify-content: center;
     border-radius: 40px;
@@ -26,8 +26,11 @@ li {
     text-align: center;
     align-items: center;
     color: #000000;
-    background-color: rgb(255, 191, 71);
+    background-color: #FFFDF7;
+    border-color: #cecece;
     border-radius: 30px;
+    border-width: 1px;
+    border-style: solid;
     width: 30vw;
     height: 60vh;
     margin: auto;
@@ -35,9 +38,21 @@ li {
     margin-right: 3vw;
     text-decoration: none;
     overflow: hidden;
+    transition: 0.2s;
+    transition-timing-function: ease-out;
 }
 
 #bigContainer a span {
     font-size: 4vw;
     font-weight: bold;
+}
+
+#one:hover {
+    background-color: #f87000;
+    color: #FFFFFF;
+}
+
+#two:hover {
+    background-color: #eeff00;
+    color: #ff0000;
 }
