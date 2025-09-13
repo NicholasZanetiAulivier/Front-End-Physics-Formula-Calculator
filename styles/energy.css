@@ -7,4 +7,69 @@
     width: fit-content;
     height: fit-content;
     text-align: center;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+#inputForm {
+    width: 500px;
+    height: fit-content;
+    background-color: antiquewhite;
+    border-radius: 20px;
+    padding: 25px;
+    padding-top: 10px;
+}
+
+div:has(> span) {
+    display: flex;
+    height: fit-content;
+    flex-direction: column;
+    justify-content: left;
+    text-align: left;
+}
+
+div span {
+    font-size: 30px;
+    margin-top: 20px;
+    margin-bottom: 5px;
+    margin-left: 20px;
+}
+
+div input {
+    font-size: 30px;
+}
+
+select {
+    font-size: 20px;
+    font-weight: bold;
+    width: 100px;
+    height: fit-content;
+    border-radius: 10px;
+    border-width: 2px;
+    align-items: center;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    padding-left: 5px;
+    border-color: black;
+}
+
+input[type="number"] {
+    width: 380px;
+    height: fit-content;
+    border-radius: 10px;
+    padding: 5px;
+    transition: 0.5s;
+}
+
+input[type="number"]:hover,
+input[type="number"]:focus {
+    background-color: aliceblue;
+}
+
+#calculate {
+    background-color: #FFFFFF;
+    margin-top: 10px;
+    font-size: 32px;
+    border-radius: 10px;
+    padding: 5px;
+    transition: 0.5s;
 }
