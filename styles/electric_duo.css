@@ -33,3 +33,26 @@
 #subtype:has(option[value="electroDuo"]:checked)~#currentContext div input[type="number"]:hover {
     background-color: azure;
 }
+
+@media only screen and (max-width: 600px) {
+    #subtype:has(option[value="electroDuo"]:checked)~#currentContext {
+        padding-bottom: 5vw;
+    }
+
+    #subtype:has(option[value="electroDuo"]:checked)~#currentContext div {
+        margin-left: 4vw;
+    }
+
+    #subtype:has(option[value="electroDuo"]:checked)~#currentContext div span {
+        font-size: 5vw;
+        margin: 3vw 2vw;
+        margin-bottom: 3vw;
+    }
+
+    #subtype:has(option[value="electroDuo"]:checked)~#currentContext div input[type="number"] {
+        font-size: 5.2vw;
+        border-radius: 2vw;
+        padding: 2vw;
+        padding-left: 2vw;
+    }
+}

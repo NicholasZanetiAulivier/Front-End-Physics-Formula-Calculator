@@ -38,3 +38,25 @@ li {
     padding-left: 50px;
     padding-bottom: 5px;
 }
+
+@media only screen and (max-width: 600px) {
+    #topnavbar {
+        background-color: #312F2F;
+        position: fixed;
+        z-index: 1000;
+        width: 100vw;
+    }
+
+    #topnavbar {
+        display: flex;
+        justify-content: center;
+    }
+
+    #topnavbar li a {
+        font-size: 10vw;
+    }
+
+    #topnavbar li span {
+        display: none;
+    }
+}

@@ -111,3 +111,34 @@ body {
 #formula img {
     padding: 30px;
 }
+
+@media only screen and (max-width: 600px) {
+
+    #facts,
+    #formula {
+        display: none;
+    }
+
+    #subtype {
+        margin-bottom: 1vw;
+        width: 80vw;
+        font-size: 6vw;
+        font-weight: bold;
+        height: fit-content;
+        padding: 1vw;
+        border-radius: 100vw;
+    }
+
+    .results {
+        margin-top: 15vw;
+    }
+
+    #currentContext {
+        width: 80vw;
+    }
+
+    #calculate {
+        font-size: 6vw;
+        font-weight: bold;
+    }
+}

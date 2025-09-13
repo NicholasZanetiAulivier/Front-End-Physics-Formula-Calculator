@@ -64,3 +64,42 @@
     width: fit-content;
     height: fit-content;
 }
+
+@media only screen and (max-width: 600px) {
+    #subtype:has(option[value="electrostatic"]:checked)~#currentContext {
+        padding-bottom: 5vw;
+        padding-top: 1vw;
+    }
+
+    #subtype:has(option[value="electrostatic"]:checked)~#currentContext div {
+        padding-left: 3vw;
+        padding-right: 1vw;
+    }
+
+    #subtype:has(option[value="electrostatic"]:checked)~#currentContext .q {
+        margin-top: 1vw;
+        margin-bottom: 1vw;
+    }
+
+    #subtype:has(option[value="electrostatic"]:checked)~#currentContext div.q button {
+        width: 9vw;
+        height: 9vw;
+        border-radius: 2vw;
+    }
+
+    #subtype:has(option[value="electrostatic"]:checked)~#currentContext div label {
+        font-size: 6vw;
+        margin: 1vw 5vw;
+    }
+
+    #subtype:has(option[value="electrostatic"]:checked)~#currentContext div input[type="number"] {
+        font-size: 5vw;
+        border-radius: 2vw;
+        padding: 2vw;
+        padding-left: 2vw;
+    }
+
+    #subtype:has(option[value="electrostatic"]:checked)~#currentContext div.q div span {
+        font-size: 5vw;
+    }
+}
