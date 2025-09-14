@@ -74,4 +74,8 @@ li {
     #bigContainer a span {
         font-size: 10vw;
     }
+
+    .results {
+        margin-top: 20vw;
+    }
 }

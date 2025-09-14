@@ -37,6 +37,7 @@
 @media only screen and (max-width: 600px) {
     #subtype:has(option[value="EQV"]:checked)~#currentContext div {
         margin-left: 3vw;
+        padding-top: 3vw;
     }
 
     #subtype:has(option[value="EQV"]:checked)~#currentContext div label {

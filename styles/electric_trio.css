@@ -55,6 +55,7 @@
     #subtype:has(option[value="electroTrio"]:checked)~#currentContext div input[type="number"] {
         font-size: 5.2vw;
         border-radius: 2vw;
+        width: 65vw;
         padding: 2vw;
         padding-left: 2vw;
     }
